@@ -1,7 +1,7 @@
 # surplus on wheels: whatsapp bridge
 
-WhatsAoo bridge for
-[surplus on wheels (s+ow)](https://github.com/markjoshwel/surplus#on-termux-surplus-on-wheels).
+WhatsApp bridge for
+[surplus on wheels (s+ow)](https://github.com/markjoshwel/surplus-on-wheels).
 
 s+ow bridges are defined in a file named `$HOME/.s+ow-bridges`. each command in the file is
 ran, and comma-seperated target chat IDs are passed using stdin.
@@ -12,30 +12,25 @@ this bridge recognises targets prefixed with `wa:`.
 wa:<chat id>,...
 ```
 
-to use the telegram bridge:
+to use the WhatsApp bridge:
 
-1. install [surplus](https://github.com/markjoshwel/surplus), mdtest and surplus on wheels
+1. install [surplus](https://github.com/markjoshwel/surplus),
+and [surplus on wheels](https://github.com/markjoshwel/surplus-on-wheels)
 
-2. install git if not installed:
-
-   ```text
-   pkg install git
-   ```
-
-3. install spow-whatsapp-bridge:
+2. install spow-whatsapp-bridge:
 
    TODO
 
-4. log into whatsapp:
+3. log into WhatsApp:
 
    ```text
    s+ow-whatsapp-bridge
    ```
 
    give it a minute or two to sync your history. once the screen stops scrolling, you can
-   safely exit.
+   safely exit with Ctrl+D.
 
-5. add the following to your `$HOME/.s+ow-bridges` file:
+4. add the following to your `$HOME/.s+ow-bridges` file:
 
    ```text
    s+ow-whatsapp-bridge
