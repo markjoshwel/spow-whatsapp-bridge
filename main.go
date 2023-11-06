@@ -51,17 +51,34 @@ var dbAddress = flag.String("db-address", "file:mdtest.db?_foreign_keys=on", "Da
 var requestFullSync = flag.Bool("request-full-sync", false, "Request full (1 year) history sync when logging in?")
 var pairRejectChan = make(chan bool, 1)
 
-func main() {
-	waBinary.IndentXML = true
-	flag.Parse()
+var data_dir = path.Join(os.Getenv("HOME"), ".local", "share", "s+ow-whatsapp-bridge")
+var sharetext_path = path.Join(os.Getenv("HOME"), ".cache", "s+ow", "message")
 
+func main() {
 	if *debugLogs {
 		logLevel = "DEBUG"
 	}
+	log = waLog.Stdout("Main", logLevel, true)
+
+	// make and change dir
+	err := os.MkdirAll(data_dir, os.ModePerm)
+	if err != nil {
+		log.Errorf("s+ow-whatsapp-bridge: Failed to create directory: %v", err)
+		return
+	}
+	err = os.Chdir(data_dir)
+	if err != nil {
+		log.Errorf("s+ow-whatsapp-bridge: Failed to change directory: %v", err)
+		return
+	}
+
+	// mdtest code
+	waBinary.IndentXML = true
+	flag.Parse()
+
 	if *requestFullSync {
 		store.DeviceProps.RequireFullSync = proto.Bool(true)
 	}
-	log = waLog.Stdout("Main", logLevel, true)
 
 	dbLog := waLog.Stdout("Database", logLevel, true)
 	storeContainer, err := sqlstore.New(*dbDialect, *dbAddress, dbLog)
@@ -133,7 +150,7 @@ func main() {
 		}
 	}()
 
-	// cli mode
+	// if using as cli
 	args := os.Args[1:]
 	if len(args) > 0 {
 		handleCmd(strings.ToLower(args[0]), args[1:])
@@ -141,7 +158,7 @@ func main() {
 	}
 
 	// read file ~/.cache/s+ow/message
-	sharetext, err := os.ReadFile(path.Join(os.Getenv("HOME"), ".cache", "s+ow", "message"))
+	sharetext, err := os.ReadFile(sharetext_path)
 	if err != nil {
 		log.Errorf("s+ow-whatsapp-bridge: Failed to open file: %v", err)
 		return
@@ -204,15 +221,6 @@ func handleCmd(cmd string, args []string) {
 		} else {
 			log.Infof("s+ow-whatsapp-bridge: Successfully logged out")
 		}
-	// case "listgroups":
-	// 	groups, err := cli.GetJoinedGroups()
-	// 	if err != nil {
-	// 		log.Errorf("s+ow-whatsapp-bridge: Failed to get group list: %v", err)
-	// 	} else {
-	// 		for _, group := range groups {
-	// 			log.Infof("s+ow-whatsapp-bridge: %+v", group)
-	// 		}
-	// 	}
 	case "list":
 		groups, err := cli.GetJoinedGroups()
 		if err != nil {
