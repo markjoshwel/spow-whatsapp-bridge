@@ -1,0 +1,65 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "go-outline@latest": {
+      "last_modified": "2023-10-25T20:49:13Z",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#go-outline",
+      "source": "devbox-search",
+      "version": "2021-06-08",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/2f4pplywv49ydxbi5bpfk5hbn1dsh62i-go-outline-unstable-2021-06-08"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/gadqfnqngs7pypap9jq0jlwhmnmjh0bl-go-outline-unstable-2021-06-08"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/xjf0m69gw1hn4sxqjjnl4cf6p242ai3f-go-outline-unstable-2021-06-08"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/h2nijpcifffgjr8nimrdiscm8q97srb8-go-outline-unstable-2021-06-08"
+        }
+      }
+    },
+    "go@latest": {
+      "last_modified": "2023-10-25T20:49:13Z",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#go",
+      "source": "devbox-search",
+      "version": "1.21.3",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/1fxz1flmv4a4m5pvjmmzxlaznjzybjcp-go-1.21.3"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/iyaywzzkhm1pi5ysd83ai9pdpic9b9ny-go-1.21.3"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/yqqhrzr15819draxsyqrn2hf5c22ffhk-go-1.21.3"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/dwmb0qcai52d0zkgpm6f5ifx2a8yvsdg-go-1.21.3"
+        }
+      }
+    },
+    "gopls@latest": {
+      "last_modified": "2023-11-02T13:29:18Z",
+      "resolved": "github:NixOS/nixpkgs/b644d97bda6dae837d577e28383c10aa51e5e2d2#gopls",
+      "source": "devbox-search",
+      "version": "0.14.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/500bnsnk6njmfdpjlhj3s5xml0z2gzj4-gopls-0.14.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/wh8c9vqmwcv49w2w1anz00vxylv1c29m-gopls-0.14.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/qwk6isry0z7p1qpp9pqip296yi6d1c43-gopls-0.14.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/mmvqj6xz6bf4q1ayjni53i24mxa5l6b1-gopls-0.14.0"
+        }
+      }
+    }
+  }
+}
