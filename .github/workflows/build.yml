@@ -26,7 +26,7 @@ jobs:
           v: true
           x: false
           race: false
-          ldflags: -s -w
+          ldflags: -s -w -linkmode=external -extldflags=-static
           buildmode: default
           trimpath: true
 
