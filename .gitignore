@@ -1,5 +1,6 @@
 spow-whatsapp-bridge
 mdtest.db
+dist
 
 # nix
 .devbox

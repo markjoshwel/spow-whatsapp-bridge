@@ -1,0 +1,31 @@
+name: manual build
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+      - uses: uraimo/run-on-arch-action@v2
+        name: Run commands
+        id: runcmd
+        with:
+          arch: aarch64
+          distro: alpine_latest
+          githubToken: ${{ github.token }}
+          run: |
+            pkg install go
+            go build -o dist/s+ow-whatsapp-bridge
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: wheels
+          path: dist/
