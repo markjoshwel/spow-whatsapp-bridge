@@ -15,11 +15,17 @@ wa:<chat id>,...
 to use the WhatsApp bridge:
 
 1. install [surplus](https://github.com/markjoshwel/surplus),
-and [surplus on wheels](https://github.com/markjoshwel/surplus-on-wheels)
+   and [surplus on wheels](https://github.com/markjoshwel/surplus-on-wheels)
 
 2. install spow-whatsapp-bridge:
 
-   TODO
+   ```text
+   pkg install golang git
+   git clone https://github.com/markjoshwel/spow-whatsapp-bridge
+   (cd spow-whatsapp-bridge; go build)
+   mkdir -p $HOME/.local/bin
+   mv spow-whatsapp-bridge/s+ow-whatsapp-bridge $HOME/.local/bin
+   ```
 
 3. log into WhatsApp:
 
