@@ -22,7 +22,7 @@ to use the WhatsApp bridge:
    ```text
    pkg install golang git
    git clone https://github.com/markjoshwel/spow-whatsapp-bridge
-   (go build; cd spow-whatsapp-bridge)
+   (cd spow-whatsapp-bridge; go build)
    mkdir -p $HOME/.local/bin
    mv spow-whatsapp-bridge/spow-whatsapp-bridge $HOME/.local/bin/s+ow-whatsapp-bridge
    ```
