@@ -20,11 +20,11 @@ to use the WhatsApp bridge:
 2. install spow-whatsapp-bridge:
 
    ```text
-    pkg install golang git
-    git clone https://github.com/markjoshwel/spow-whatsapp-bridge
-    (go build; cd spow-whatsapp-bridge)
-    mkdir -p $HOME/.local/bin
-    mv spow-whatsapp-bridge/spow-whatsapp-bridge $HOME/.local/bin/s+ow-whatsapp-bridge
+   pkg install golang git
+   git clone https://github.com/markjoshwel/spow-whatsapp-bridge
+   (go build; cd spow-whatsapp-bridge)
+   mkdir -p $HOME/.local/bin
+   mv spow-whatsapp-bridge/spow-whatsapp-bridge $HOME/.local/bin/s+ow-whatsapp-bridge
    ```
 
 3. log into WhatsApp:
