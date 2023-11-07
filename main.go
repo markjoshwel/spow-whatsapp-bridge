@@ -135,7 +135,7 @@ func main() {
 		return
 	}
 
-	// c := make(chan os.Signal)
+	c := make(chan os.Signal)
 	input := make(chan string)
 	signalChan := make(chan os.Signal, 1)
 	signal.Notify(signalChan, os.Interrupt, syscall.SIGTERM)
@@ -149,6 +149,26 @@ func main() {
 			}
 		}
 	}()
+
+	// if 'login' in os.Args, we exit here
+	for _, arg := range os.Args {
+		if arg == "login" {
+			for {
+				select {
+				case <-c:
+					log.Infof("Interrupt received, exiting")
+					cli.Disconnect()
+					return
+				case cmd := <-input:
+					if len(cmd) == 0 {
+						log.Infof("Stdin closed, exiting")
+						cli.Disconnect()
+						return
+					}
+				}
+			}
+		}
+	}
 
 	// if using as cli
 	args := os.Args[1:]

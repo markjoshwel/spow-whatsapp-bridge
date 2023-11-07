@@ -20,21 +20,21 @@ to use the WhatsApp bridge:
 2. install spow-whatsapp-bridge:
 
    ```text
-   pkg install golang git
-   git clone https://github.com/markjoshwel/spow-whatsapp-bridge
-   (cd spow-whatsapp-bridge; go build)
-   mkdir -p $HOME/.local/bin
-   mv spow-whatsapp-bridge/s+ow-whatsapp-bridge $HOME/.local/bin
+    pkg install golang git
+    git clone https://github.com/markjoshwel/spow-whatsapp-bridge
+    (go build; cd spow-whatsapp-bridge)
+    mkdir -p $HOME/.local/bin
+    mv spow-whatsapp-bridge/spow-whatsapp-bridge $HOME/.local/bin/s+ow-whatsapp-bridge
    ```
 
 3. log into WhatsApp:
 
    ```text
-   s+ow-whatsapp-bridge
+   s+ow-whatsapp-bridge login
    ```
 
    give it a minute or two to sync your history. once the screen stops scrolling, you can
-   safely exit with Ctrl+D.
+   safely exit with `Ctrl+D` or `Ctrl+C`.
 
 4. add the following to your `$HOME/.s+ow-bridges` file:
 
@@ -46,6 +46,8 @@ usage:
 
 - `s+ow-whatsapp-bridge`  
   normal usage; sends latest message to `wa:`-prefixed targets given in stdin
+- `s+ow-whatsapp-login`  
+  logs into WhatsApp
 - `s+ow-whatsapp-bridge logout`  
   logs out of WhatsApp
 - `s+ow-whatsapp-bridge list`  
